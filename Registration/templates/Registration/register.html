@@ -1,0 +1,21 @@
+{% extends 'core/base.html'%}
+{% load static %}
+{% block content %}
+ {% load crispy_forms_tags %}
+<div class="container">
+     <div class="row my-4 my-lg-5">
+          <div class="col-12 col-md-10 offset-md-1 col-lg-6 offset-lg-3 text-center">
+               <img src="assets/custom/images/signin-logo.png" alt="signin" class="img-fluid">
+               <p class="font-20 semi-font fables-main-text-color mt-4 mb-5">Create a new account</p>
+
+                <form method="post">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-block rounded-0 white-color fables-main-hover-background-color fables-second-background-color font-16 semi-font py-3">Register</button>
+                    <p class="fables-forth-text-color">Already have an account ?  <a href="{% url 'login' %}" class="font-16 semi-font fables-second-text-color underline fables-main-hover-color ml-2">Login</a></p>
+                </form>
+
+          </div>
+     </div>
+</div>
+{% endblock content %}
